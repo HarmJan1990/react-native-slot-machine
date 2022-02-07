@@ -196,9 +196,11 @@ export default class SlotMachine extends Component {
         });
 
         Animated.parallel(animations).start(() => {
+          try{
             const newValues = this.getAlignedValues(this.props);
             newValues.forEach((value, i) => values[i].setValue(value));
             this.setState({initialAnimation: false});
+            }catch(e){}
         });
 
         this.setState({initialAnimation: true});
