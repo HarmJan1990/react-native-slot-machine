@@ -213,7 +213,7 @@ export default class SlotMachine extends Component {
     }
 
     renderContent(currentChar, i, range) {
-        const {styles: overrideStyles, renderTextContent} = this.props;        
+        const {styles: overrideStyles, renderTextContent} = this.props;
         const textContent = renderTextContent(currentChar, i, range);
         return (<Text style={[styles.text, overrideStyles.text]}>{textContent}</Text>);
     }
@@ -229,12 +229,12 @@ export default class SlotMachine extends Component {
                 const currentIndex = (i + charToShowIndex) % range.length;
                 currentChar = range[currentIndex];
             }
-            
+
             const content = renderContent(currentChar, i, range);
             return (
                 <Animated.View
                     key={i}
-                    style={[styles.slotInner, {height}, overrideStyles.slotInner, {transform: [{translateY: values[position]}]} ]}
+                    style={[styles.slotInner, {height, backgroundColor: '#fff'}, overrideStyles.slotInner, {transform: [{translateY: values[position]}]} ]}
                 >
                     {content}
                 </Animated.View>
@@ -246,7 +246,6 @@ export default class SlotMachine extends Component {
                 {slots}
                 <View style={[styles.innerBorder, overrideStyles.innerBorder]} />
                 <View style={[styles.outerBorder, overrideStyles.outerBorder]} />
-                <View style={[styles.overlay, {bottom: height / 1.6}, overrideStyles.overlay]} />
             </View>
         );
     }
