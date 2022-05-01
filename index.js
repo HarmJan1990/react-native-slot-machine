@@ -96,7 +96,7 @@ export default class SlotMachine extends Component {
         setTimeout(this.startInitialAnimation, delay);
     }
 
-    componentWillReceiveProps(newProps) {
+    componentDidUpdate(newProps) {
         if (newProps.text === this.text) {
             return;
         }
